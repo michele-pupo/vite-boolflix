@@ -66,10 +66,9 @@
     align-items: center;
 
     #image-movie{
-      width: calc(100% / 5);
-
       img{
         width: 100%;
+        height: 400px;
       }
     }
 

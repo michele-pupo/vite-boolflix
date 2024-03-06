@@ -8,59 +8,59 @@
             store,
           }
         },
+        methods: {
+          clearMovieSearch() {
+            this.store.searchMovie = ''; // Pulisci il campo di ricerca dei film
+          },
+          clearSerieSearch() {
+            this.store.searchSerie = ''; // Pulisci il campo di ricerca delle serie
+          }
+        }
     }
 </script>
 
 <template>
   <nav>
-    <div class="container">
-      <div id="container-nav">
-        <div id="logo-links">
-          <img src="../../public/img/BrandAssets_Logos_01-Wordmark.jpg" alt="">
-          <div id="links">
-            <ul>
-              <li>Home</li>
-              <li>Serie TV</li>
-              <li>Fans</li>
-              <li>Original</li>
-              <li>Aggiunti di recente</li>
-              <li>La mia lista</li>
-            </ul>
-          </div>
+    <div id="container-nav">
+      <div id="logo-links">
+        <img src="../../public/img/BrandAssets_Logos_01-Wordmark.jpg" alt="">
+         <div id="links">
+          <ul>
+            <li>Home</li>
+            <li>Serie TV</li>
+            <li>Fans</li>
+            <li>Original</li>
+            <li>Aggiunti di recente</li>
+            <li>La mia lista</li>
+          </ul>
         </div>
-        <div id="movie-serie">
-          <div id="search-bar">
-            <form @click.prevent="$emit('searchMovie')">
-              <label for="search"></label>
-              <input 
-                  v-model="store.searchMovie"
-                  type="text" 
-                  id="search" 
-                  name="searchSection"
-                  placeholder="Search your movie..." />
-              <button
-                  type="submit" 
-                  name="searchSection">
-                  Search Movie
-              </button>
-            </form>
-          </div>
-          <div id="search-bar">
-            <form @click.prevent="$emit('searchSerie')">
-              <label for="search"></label>
-              <input 
-                  v-model="store.searchSerie"
-                  type="text" 
-                  id="search" 
-                  name="searchSection"
-                  placeholder="Search your movie..." />
-              <button
-                  type="submit" 
-                  name="searchSection">
-                  Search Serie
-              </button>
-            </form>
-          </div>
+      </div>
+      <div id="movie-serie">
+         <div id="search-bar">
+          <form @click.prevent="$emit('searchMovie')">
+            <label for="search"></label>
+            <input 
+                v-model="store.searchMovie"
+                type="text" 
+                id="search" 
+                name="searchSection"
+                placeholder="Ricerca film..." />
+            <button type="submit" name="searchSection">Cerca Film</button>
+            <button id="clear" type="button" @click="clearMovieSearch"><i class="fa-solid fa-x"></i></button>
+          </form>
+        </div>
+        <div id="search-bar">
+          <form @click.prevent="$emit('searchSerie')">
+            <label for="search"></label>
+            <input 
+                v-model="store.searchSerie"
+                type="text" 
+                id="search" 
+                name="searchSection"
+                placeholder="Ricerca serie TV..." />
+            <button type="submit" name="searchSection">Cerca Serie TV</button>
+            <button id="clear" type="button" @click="clearSerieSearch"><i class="fa-solid fa-x"></i></button>
+          </form>
         </div>
       </div>
     </div>
@@ -91,28 +91,44 @@
             ul{
               display: flex;
               list-style-type: none;
-              gap: 25px;
+              gap: 30px;
             }
           }
         }
 
         #movie-serie{
           display: flex;
-          gap: 50px;
+          gap: 10px;
 
           #search-bar{
             form{
               display: flex;
               text-wrap: nowrap;
+              padding-right: 40px;
 
               button{
-                padding: 5px 20px;
+                padding: 5px 10px;
+                background-color: #e50914;
+                color: black;
+                border: transparent;
+                text-transform: uppercase;
+                font-weight: bold;
+                cursor: pointer;
+              }
+              
+              #clear{
+                padding: 10px 20px;
+                background-color: black;
+                color: #e50914;
+                border: transparent;
+                text-transform: uppercase;
+                font-weight: bold;
+                cursor: pointer;
               }
             }
           }
         }
-        
       }
   }
-  
 </style>
+

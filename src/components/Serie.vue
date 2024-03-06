@@ -63,10 +63,9 @@
         align-items: center;
 
         #image-serie{
-            width: calc(100% / 5);
-
             img{
                 width: 100%;
+                height: 400px;
             }
         }
 
