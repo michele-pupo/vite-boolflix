@@ -11,4 +11,7 @@ export const store = reactive ({
     apiUrlSerie:'https://api.themoviedb.org/3/search/tv?api_key=436e488d896be16eafbb27d2830c0175&',
  
     series:[],
+
+    //api locandine film e serie
+    apiPoster:'https://image.tmdb.org/t/p/w1280/',
 });

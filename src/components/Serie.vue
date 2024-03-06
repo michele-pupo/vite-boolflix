@@ -12,6 +12,7 @@
           name: String,
           originalName: String,
           originalLanguage: String,
+          image: String,
         },
         computed: {
           languageFlagUrl() {
@@ -40,7 +41,8 @@
  
   <li id="serie-card">
     <div id="image-serie">
-        
+        <img class="image" v-if="image !== null" :src="`${this.store.apiPoster}${image}`" :alt="title">
+        <img class="image not-found" v-else src="../../public/img/Netflix-Symbol.png">
     </div>
     <div id="description-serie">
         <h3>{{ name }}</h3>
@@ -56,6 +58,17 @@
 <style lang="scss" scoped>
     #serie-card{
         width: calc(100% / 5);
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+
+        #image-serie{
+            width: calc(100% / 5);
+
+            img{
+                width: 100%;
+            }
+        }
 
         #description-serie{
             display: flex;

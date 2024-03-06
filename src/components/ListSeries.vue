@@ -22,7 +22,7 @@
         :name="serie.name"
         :originalName="serie.original_name"
         :originalLanguage="serie.original_language"
-    >  
+        :image="serie.poster_path">  
   </Serie>
   </ul>
 

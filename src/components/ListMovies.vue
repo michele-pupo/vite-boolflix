@@ -22,7 +22,9 @@
         :title="movie.title"
         :originalTitle="movie.original_title"
         :originalLanguage="movie.original_language"
-        :vote="Math.ceil(movie.vote_average)">  
+        :vote="Math.ceil(movie.vote_average)"
+        :image="movie.poster_path">
+          
     </Movie>
   </ul>
 

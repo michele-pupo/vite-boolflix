@@ -13,6 +13,7 @@
           originalTitle: String,
           originalLanguage: String,
           vote: Number,
+          image: String,
         },
         computed: {
           languageFlagUrl() {
@@ -41,7 +42,8 @@
  
   <li id="movie-card">
     <div id="image-movie">
-        
+      <img class="image" v-if="image !== null" :src="`${this.store.apiPoster}${image}`" :alt="title">
+      <img class="image not-found" v-else src="../../public/img/Netflix-Symbol.png">
     </div>
     <div id="description-movie">
         <h3>{{ title }}</h3>
@@ -59,6 +61,17 @@
 <style lang="scss" scoped>
   #movie-card{
     width: calc(100% / 5);
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+
+    #image-movie{
+      width: calc(100% / 5);
+
+      img{
+        width: 100%;
+      }
+    }
 
     #description-movie{
       display: flex;
