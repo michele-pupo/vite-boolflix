@@ -1,12 +1,12 @@
 <script>
     import ListMovies from './ListMovies.vue';
-    import ListeSeries from './ListSeries.vue'
+    import ListSeries from './ListSeries.vue'
     export default{
         name: 'AppMain',
       
         components:{
             ListMovies,
-            ListeSeries
+            ListSeries
         },
     };
 </script>
@@ -15,7 +15,7 @@
  
     <div class="container">
         <ListMovies></ListMovies>
-        <ListaSeries></ListaSeries>
+        <ListSeries></ListSeries>
     </div>
 
 </template>

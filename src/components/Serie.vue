@@ -9,10 +9,9 @@
           };
         },
         props: {
-          title: String,
-          originalTitle: String,
+          name: String,
+          originalName: String,
           originalLanguage: String,
-          vote: Number,
         },
         computed: {
           languageFlagUrl() {
@@ -39,18 +38,16 @@
 
 <template>
  
-  <li id="movie-card">
-    <div id="image-movie">
+  <li id="serie-card">
+    <div id="image-serie">
         
     </div>
-    <div id="description-movie">
-        <h3>{{ title }}</h3>
-        <h2>{{ originalTitle }}</h2>
+    <div id="description-serie">
+        <h3>{{ name }}</h3>
+        <h2>{{ originalName }}</h2>
         <div id="language">
           <img :src="languageFlagUrl" alt="Language Flag">
         </div>
-        <h4>{{ originalLanguage }}</h4>
-        <h5>{{ vote }}</h5>
     </div>
   </li>
 

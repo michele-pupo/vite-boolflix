@@ -28,9 +28,9 @@
       callApiSerie() {
         axios.get(this.store.apiUrlSerie, {
           params: {query: this.store.searchSerie}})
-            .then((res) => {this.store.movies = res.data.results;})
+            .then((res) => {this.store.series = res.data.results;})
             .catch((error) => {
-              console.error('Error fetching movies:', error);
+              console.error('Error fetching series:', error);
         })
       }
     },
