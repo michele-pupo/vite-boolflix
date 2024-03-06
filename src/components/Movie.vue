@@ -56,12 +56,30 @@
 
 </template>
 
-<style lang="scss">
-  #language{
-    width: 30px;
+<style lang="scss" scoped>
+  #movie-card{
+    width: calc(100% / 5);
 
-    img{
-      width: 100%;
+    #description-movie{
+      display: flex;
+      flex-flow: column;
+      align-items: center;
+
+      h3{
+        font-size: 15px;
+      }
+
+      h2{
+        font-size: 10px;
+      }
+
+      #language{
+        width: 30px;
+
+        img{
+          width: 100%;
+        }
+      }
     }
   }
 </style>

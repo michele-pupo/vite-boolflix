@@ -28,6 +28,10 @@
 
 </template>
 
-<style lang="scss">
- 
+<style lang="scss" scoped>
+    ul{
+        list-style-type: none;
+        display: flex;
+        flex-flow: wrap;
+    }
 </style>
