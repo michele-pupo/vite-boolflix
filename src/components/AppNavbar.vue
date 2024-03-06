@@ -91,7 +91,7 @@
             ul{
               display: flex;
               list-style-type: none;
-              gap: 30px;
+              gap: 40px;
             }
           }
         }
