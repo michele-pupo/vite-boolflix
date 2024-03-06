@@ -22,17 +22,31 @@
             .then((res) => {this.store.movies = res.data.results;})
             .catch((error) => {
               console.error('Error fetching movies:', error);
-        });
+        })
+      },
+
+      callApiSerie() {
+        axios.get(this.store.apiUrlSerie, {
+          params: {query: this.store.searchSerie}})
+            .then((res) => {this.store.movies = res.data.results;})
+            .catch((error) => {
+              console.error('Error fetching movies:', error);
+        })
       }
     },
     created() {
-      this.callApiMovie()
+      this.callApiMovie(),
+      this.callApiSerie()
     }
   }
 </script>
 
 <template>
-  <AppNavbar @search="callApiMovie"></AppNavbar>
+  <AppNavbar 
+      @searchMovie="callApiMovie"
+      @searchSerie="callApiSerie"
+  >
+  </AppNavbar>
   <AppMain></AppMain>
 </template>
 

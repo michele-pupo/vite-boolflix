@@ -28,21 +28,39 @@
             </ul>
           </div>
         </div>
-        <div id="search-bar">
-          <form @click.prevent="$emit('search')">
-            <label for="search"></label>
-            <input 
-                v-model="store.searchMovie"
-                type="text" 
-                id="search" 
-                name="searchSection"
-                placeholder="Search your movie..." />
-            <button
-                type="submit" 
-                name="searchSection">
-                Search
-            </button>
-          </form>
+        <div id="movie-serie">
+          <div id="search-bar">
+            <form @click.prevent="$emit('searchMovie')">
+              <label for="search"></label>
+              <input 
+                  v-model="store.searchMovie"
+                  type="text" 
+                  id="search" 
+                  name="searchSection"
+                  placeholder="Search your movie..." />
+              <button
+                  type="submit" 
+                  name="searchSection">
+                  Search Movie
+              </button>
+            </form>
+          </div>
+          <div id="search-bar">
+            <form @click.prevent="$emit('searchSerie')">
+              <label for="search"></label>
+              <input 
+                  v-model="store.searchSerie"
+                  type="text" 
+                  id="search" 
+                  name="searchSection"
+                  placeholder="Search your movie..." />
+              <button
+                  type="submit" 
+                  name="searchSection">
+                  Search Serie
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     </div>
@@ -78,16 +96,22 @@
           }
         }
 
-        #search-bar{
-          form{
-            display: flex;
-            gap: 10px;
+        #movie-serie{
+          display: flex;
+          gap: 50px;
 
-            button{
-              padding: 5px 20px;
+          #search-bar{
+            form{
+              display: flex;
+              text-wrap: nowrap;
+
+              button{
+                padding: 5px 20px;
+              }
             }
           }
         }
+        
       }
   }
   

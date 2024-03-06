@@ -7,4 +7,8 @@ export const store = reactive ({
     searchMovie: '',
 
     movies:[],
+    // api ricerca serie
+    apiUrlSerie:'https://api.themoviedb.org/3/search/tv?api_key=436e488d896be16eafbb27d2830c0175&',
+ 
+    series:[],
 });
