@@ -1,6 +1,13 @@
 <script>
+    import { store } from '../store';
     export default{
         name: 'Appnavbar',
+      
+        data() {
+          return {
+            store,
+          }
+        },
     }
 </script>
 
@@ -22,7 +29,20 @@
           </div>
         </div>
         <div id="search-bar">
-          ciao
+          <form @click.prevent="$emit('search')">
+            <label for="search"></label>
+            <input 
+              v-model="store.searchMovie"
+              type="text" 
+              id="search" 
+              name="searchSection"
+              placeholder="Search your movie..." />
+            <button
+              type="submit" 
+              name="searchSection">
+              Search
+            </button>
+          </form>
         </div>
       </div>
     </div>
@@ -54,6 +74,17 @@
               display: flex;
               list-style-type: none;
               gap: 25px;
+            }
+          }
+        }
+
+        #search-bar{
+          form{
+            display: flex;
+            gap: 10px;
+
+            button{
+              padding: 5px 20px;
             }
           }
         }
