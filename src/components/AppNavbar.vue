@@ -32,15 +32,15 @@
           <form @click.prevent="$emit('search')">
             <label for="search"></label>
             <input 
-              v-model="store.searchMovie"
-              type="text" 
-              id="search" 
-              name="searchSection"
-              placeholder="Search your movie..." />
+                v-model="store.searchMovie"
+                type="text" 
+                id="search" 
+                name="searchSection"
+                placeholder="Search your movie..." />
             <button
-              type="submit" 
-              name="searchSection">
-              Search
+                type="submit" 
+                name="searchSection">
+                Search
             </button>
           </form>
         </div>

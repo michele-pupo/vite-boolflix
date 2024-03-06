@@ -1,12 +1,14 @@
 <script>
   import AppNavbar from './components/AppNavbar.vue';
+  import AppMain from './components/AppMain.vue';
   import { store } from './store';
   import axios from 'axios';
 
   export default{
 
     components: {
-      AppNavbar
+      AppNavbar,
+      AppMain
     },
     data() {
       return {
@@ -15,10 +17,12 @@
     },
     methods:{
       callApiMovie() {
-        const key = {query: this.store.searchMovie};
-        // chiamata film
-        const movie = axios.get(this.store.apiUrlMovie, {key})
-          .then((res) => {this.store.movies = res.data.results}) 
+        axios.get(this.store.apiUrlMovie, {
+          params: {query: this.store.searchMovie}})
+            .then((res) => {this.store.movies = res.data.results;})
+            .catch((error) => {
+              console.error('Error fetching movies:', error);
+        });
       }
     },
     created() {
@@ -29,6 +33,7 @@
 
 <template>
   <AppNavbar @search="callApiMovie"></AppNavbar>
+  <AppMain></AppMain>
 </template>
 
 <style lang="scss">
