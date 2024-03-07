@@ -23,8 +23,10 @@
   <nav>
     <div id="container-nav">
       <div id="logo-links">
-        <img src="../../public/img/BrandAssets_Logos_01-Wordmark.jpg" alt="">
-         <div id="links">
+        <div id="logo">
+          <img src="../../public/img/boolflix.png" alt="">
+        </div>
+        <div id="links">
           <ul>
             <li>Home</li>
             <li>Serie TV</li>
@@ -83,9 +85,15 @@
           display: flex;
           align-items: center;
 
-          img{
-            height: 100%;
+          #logo{
+            height: 80px;
+            padding: 0px 50px;
+
+            img{
+              height: 100%;
+            }
           }
+          
 
           #links{
             ul{
@@ -104,7 +112,7 @@
             form{
               display: flex;
               text-wrap: nowrap;
-              padding-right: 40px;
+              padding-right: 50px;
 
               button{
                 padding: 5px 10px;

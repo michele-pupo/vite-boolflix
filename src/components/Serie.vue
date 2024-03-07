@@ -31,7 +31,7 @@
             };
 
             // Ottieni il percorso dell'immagine della bandiera corrispondente alla lingua originale
-            return flagMapping[this.originalLanguage] || '../../public/img/BrandAssets_Logos_01-Wordmark.jpg'; // Se la lingua non è mappata, usa una bandiera predefinita
+            return flagMapping[this.originalLanguage] || '../../public/img/logo_brand.jpg'; // Se la lingua non è mappata, usa una bandiera predefinita
         }
       }
     }
@@ -42,7 +42,7 @@
   <li id="serie-card">
     <div id="image-serie">
         <img class="image" v-if="image !== null" :src="`${this.store.apiPoster}${image}`" :alt="title">
-        <img class="image not-found" v-else src="../../public/img/Netflix-Symbol.png">
+        <img class="image not-found" v-else src="../../public/img/Boolflix_Symbol.png">
     </div>
     <div id="description-serie">
         <h3>{{ name }}</h3>
