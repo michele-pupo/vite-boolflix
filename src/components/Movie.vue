@@ -5,8 +5,8 @@
       
         data() {
           return {
-            store,
-            maxStars: 5,
+              store,
+              maxStars: 5,
           };
         },
         props: {

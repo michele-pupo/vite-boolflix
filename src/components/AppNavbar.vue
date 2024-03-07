@@ -9,11 +9,9 @@
           }
         },
         methods: {
+          // ripulisce il campo di ricerca dei film
           clearMovieSearch() {
-            this.store.searchMovie = ''; // Pulisci il campo di ricerca dei film
-          },
-          clearSerieSearch() {
-            this.store.searchSerie = ''; // Pulisci il campo di ricerca delle serie
+            this.store.searchMovie = ''; 
           },
         }
     }
@@ -37,7 +35,7 @@
           </ul>
         </div>
       </div>
-      <div id="movie-serie">
+      <div id="movie">
          <div id="search-bar">
           <form @click.prevent="$emit('searchMovie')">
             <label for="search"></label>
@@ -46,22 +44,9 @@
                 type="text" 
                 id="search" 
                 name="searchSection"
-                placeholder="Ricerca film..." />
+                placeholder="Inserisci titolo..." />
             <button type="submit" name="searchSection">Cerca Film</button>
             <button id="clear" type="button" @click="clearMovieSearch"><i class="fa-solid fa-x"></i></button>
-          </form>
-        </div>
-        <div id="search-bar">
-          <form @click.prevent="$emit('searchSerie')">
-            <label for="search"></label>
-            <input 
-                v-model="store.searchSerie"
-                type="text" 
-                id="search" 
-                name="searchSection"
-                placeholder="Ricerca serie TV..." />
-            <button type="submit" name="searchSection">Cerca Serie TV</button>
-            <button id="clear" type="button" @click="clearSerieSearch"><i class="fa-solid fa-x"></i></button>
           </form>
         </div>
       </div>
@@ -117,7 +102,7 @@
           }
         }
 
-        #movie-serie{
+        #movie{
           display: flex;
           gap: 20px;
           padding-right: 20px;
@@ -129,7 +114,7 @@
 
               #search{
                 padding: 0px 10px;
-                width: 150px;
+                width: 250px;
                 border-color: transparent;
                 font-weight: bold;
               }

@@ -1,6 +1,7 @@
 <script>
   import AppNavbar from './components/AppNavbar.vue';
   import AppMain from './components/AppMain.vue';
+  import AppFooter from './components/AppFooter.vue';
   import { store } from './store';
   import axios from 'axios';
 
@@ -8,7 +9,8 @@
 
     components: {
       AppNavbar,
-      AppMain
+      AppMain,
+      AppFooter
     },
     data() {
       return {
@@ -23,11 +25,9 @@
             .catch((error) => {
               console.error('Error fetching movies:', error);
         })
-      },
-
-      callApiSerie() {
+    
         axios.get(this.store.apiUrlSerie, {
-          params: {query: this.store.searchSerie}})
+          params: {query: this.store.searchMovie}})
             .then((res) => {this.store.series = res.data.results;})
             .catch((error) => {
               console.error('Error fetching series:', error);
@@ -35,19 +35,15 @@
       }
     },
     created() {
-      this.callApiMovie(),
-      this.callApiSerie()
+      this.callApiMovie()
     }
   }
 </script>
 
 <template>
-  <AppNavbar 
-      @searchMovie="callApiMovie"
-      @searchSerie="callApiSerie"
-  >
-  </AppNavbar>
+  <AppNavbar @searchMovie="callApiMovie"></AppNavbar>
   <AppMain></AppMain>
+  <AppFooter></AppFooter>
 </template>
 
 <style lang="scss">
