@@ -23,6 +23,10 @@
 </template>
 
 <style lang="scss">
+    .bg{
+        height: calc(100vh - 120px);
+        overflow: auto;
+    }
     h1{
         text-align: center;
         font-size: 70px;

@@ -74,12 +74,12 @@
 
   nav{
     background-color: #101010;
+    z-index: 10;
 
       #container-nav{
         display: flex;
         align-items: center;
         justify-content: space-between;
-        
 
         #logo-links{
           height: 120px;
