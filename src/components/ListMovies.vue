@@ -30,10 +30,12 @@
 </template>
 
 <style lang="scss" scoped>
+@use '../styles/_variables' as *;
+
     .list-movies{
         list-style-type: none;
         display: flex;
         flex-flow: wrap;
-        gap: 25px;
+        gap: $card-gap;
     }
 </style>

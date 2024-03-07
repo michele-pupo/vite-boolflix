@@ -69,9 +69,11 @@
 </template>
 
 <style lang="scss" scoped>
+@use '../styles/_variables' as *;
+
   #movie-card{
     background-color: transparent;
-    width: calc(100% / 5 - 25px / 5 * 4);
+    width: calc(100% / 5 - $card-gap / 5 * 4);
     height: 400px;
     display: flex;
     flex-flow: column;

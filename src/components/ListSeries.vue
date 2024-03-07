@@ -16,7 +16,7 @@
 
 <template>
  
-  <ul>
+  <ul class="list-series">
     <Serie 
         v-for="serie in store.series"
         :name="serie.name"
@@ -30,9 +30,12 @@
 </template>
 
 <style lang="scss" scoped>
-    ul{
+@use '../styles/_variables' as *;
+
+    .list-series{
         list-style-type: none;
         display: flex;
         flex-flow: wrap;
+        gap: $card-gap;
     }
 </style>

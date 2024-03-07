@@ -70,6 +70,8 @@
 </template>
 
 <style lang="scss">
+@use '../styles/_variables' as *;
+
   nav{
     background-color: #101010;
 
@@ -116,7 +118,7 @@
 
               button{
                 padding: 5px 10px;
-                background-color: #e50914;
+                background-color: $primary-color;
                 color: black;
                 border: transparent;
                 text-transform: uppercase;
@@ -127,7 +129,7 @@
               #clear{
                 padding: 10px 20px;
                 background-color: black;
-                color: #e50914;
+                color: $primary-color;
                 border: transparent;
                 text-transform: uppercase;
                 font-weight: bold;
