@@ -14,10 +14,10 @@
 <template>
     <div class="bg">
         <div class="container">
-            <h1>Film</h1>
-            <ListMovies></ListMovies>
-            <h1>Serie</h1>
-            <ListSeries></ListSeries>
+            <img src="../../public/img/film.png" alt="">
+            <ListMovies id="movie"></ListMovies>
+            <img src="../../public/img/serie.png" alt="">
+            <ListSeries id="serie"></ListSeries>
         </div>
     </div>
 </template>
@@ -26,9 +26,12 @@
     .bg{
         height: calc(100vh - 120px);
         overflow: auto;
-    }
-    h1{
-        text-align: center;
-        font-size: 70px;
+        .container{
+            padding-top: 30px;
+            #movie, #serie{
+                padding-top: 30px;
+                padding-bottom: 80px;
+            }
+        }
     }
 </style>

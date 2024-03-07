@@ -14,7 +14,7 @@
           },
           clearSerieSearch() {
             this.store.searchSerie = ''; // Pulisci il campo di ricerca delle serie
-          }
+          },
         }
     }
 </script>
@@ -28,12 +28,12 @@
         </div>
         <div id="links">
           <ul>
-            <li>Home</li>
-            <li>Serie TV</li>
-            <li>Fans</li>
-            <li>Original</li>
-            <li>Aggiunti di recente</li>
-            <li>La mia lista</li>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Serie TV</a></li>
+            <li><a href="#">Fans</a></li>
+            <li><a href="#">Original</a></li>
+            <li><a href="#">Aggiunti di recente</a></li>
+            <li><a href="#">La mia lista</a></li>
           </ul>
         </div>
       </div>
@@ -65,6 +65,11 @@
           </form>
         </div>
       </div>
+      <div>
+        <div id="user">
+          <img src="../../public/img/johnny.jpg" alt="">
+        </div>
+      </div>
     </div>
   </nav>
 </template>
@@ -80,6 +85,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        padding: 0px 50px;
 
         #logo-links{
           height: 120px;
@@ -89,19 +95,23 @@
 
           #logo{
             height: 80px;
-            padding: 0px 50px;
+            padding-right: 50px;
 
             img{
               height: 100%;
             }
           }
           
-
           #links{
             ul{
               display: flex;
               list-style-type: none;
               gap: 40px;
+
+              li a{
+                text-decoration: none;
+                color: white;
+              }
             }
           }
         }
@@ -115,6 +125,12 @@
               display: flex;
               text-wrap: nowrap;
               padding-right: 50px;
+
+              #search{
+                padding: 0px 10px;
+                border-color: transparent;
+                font-weight: bold;
+              }
 
               button{
                 padding: 5px 10px;
@@ -137,6 +153,18 @@
               }
             }
           }
+        }
+      }
+
+      #user{
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        overflow: hidden;
+
+        img{
+          width: 100%;
+          object-fit: contain;
         }
       }
   }
