@@ -12,14 +12,14 @@
 </script>
 
 <template>
- 
-    <div class="container">
-        <h1>Film</h1>
-        <ListMovies></ListMovies>
-        <h1>Serie</h1>
-        <ListSeries></ListSeries>
+    <div class="bg">
+        <div class="container">
+            <h1>Film</h1>
+            <ListMovies></ListMovies>
+            <h1>Serie</h1>
+            <ListSeries></ListSeries>
+        </div>
     </div>
-
 </template>
 
 <style lang="scss">
