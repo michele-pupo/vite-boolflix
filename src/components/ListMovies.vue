@@ -16,7 +16,7 @@
 
 <template>
  
-  <ul>
+  <ul class="list-movies">
     <Movie 
         v-for="movie in store.movies"
         :title="movie.title"
@@ -30,9 +30,10 @@
 </template>
 
 <style lang="scss" scoped>
-    ul{
+    .list-movies{
         list-style-type: none;
         display: flex;
         flex-flow: wrap;
+        gap: 25px;
     }
 </style>

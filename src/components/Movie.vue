@@ -45,20 +45,24 @@
 <template>
  
   <li id="movie-card">
-    <div id="image-movie">
-      <img class="image" v-if="image !== null" :src="`${this.store.apiPoster}${image}`" :alt="title">
-      <img class="image not-found" v-else src="../../public/img/Boolflix_Symbol.png">
-    </div>
-    <div id="description-movie">
-        <h3>{{ title }}</h3>
-        <h2>{{ originalTitle }}</h2>
-        <div id="language">
-          <img :src="languageFlagUrl" alt="Language Flag">
+    <div class="card">
+      <div id="movie-card-front">
+        <img class="image" v-if="image !== null" :src="`${this.store.apiPoster}${image}`" :alt="title">
+        <img class="image not-found" v-else src="../../public/img/Boolflix_Symbol.png">
+      </div>
+      <div id="movie-card-back">
+        <div id="description-movie">
+            <h3>{{ title }}</h3>
+            <h2>{{ originalTitle }}</h2>
+            <div id="language">
+              <img :src="languageFlagUrl" alt="Language Flag">
+            </div>
+            <div id="stars">
+              <span v-for="star in myStars"><i class="fa-solid fa-star"></i></span>
+              <span v-for="star in emptyStars"><i class="fa-regular fa-star"></i></span>
+            </div>
         </div>
-        <div id="stars">
-          <span v-for="star in myStars"><i class="fa-solid fa-star"></i></span>
-          <span v-for="star in emptyStars"><i class="fa-regular fa-star"></i></span>
-        </div>
+      </div>
     </div>
   </li>
 
@@ -66,42 +70,72 @@
 
 <style lang="scss" scoped>
   #movie-card{
-    width: calc(100% / 5);
+    background-color: transparent;
+    width: calc(100% / 5 - 25px / 5 * 4);
+    height: 400px;
     display: flex;
     flex-flow: column;
     align-items: center;
 
-    #image-movie{
-      img{
-        width: 100%;
-        height: 400px;
-      }
-    }
+    .card{
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 1.5s;
+      transform-style: preserve-3d;
 
-    #description-movie{
-      display: flex;
-      flex-flow: column;
-      align-items: center;
-
-      h3{
-        font-size: 15px;
-      }
-
-      h2{
-        font-size: 10px;
-      }
-
-      #language{
-        width: 30px;
+      #movie-card-front{
 
         img{
           width: 100%;
+          height: 100%;
         }
       }
 
-      #stars span i{
-        color: yellow;
+      #movie-card-back{
+        background-color: black;
+        color: white;
+        transform: rotateY(180deg);
+        white-space: wrap;
+        overflow: hidden;
+
+        #description-movie{
+          display: flex;
+          flex-flow: column;
+          align-items: center;
+
+          h3{
+            font-size: 15px;
+          }
+
+          h2{
+            font-size: 10px;
+          }
+
+          #language{
+            width: 30px;
+
+            img{
+              width: 100%;
+            }
+          }
+
+          #stars span i{
+            color: yellow;
+          }
+        }
+      }  
+
+      #movie-card-front, #movie-card-back{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
       }
     }
+  }
+  #movie-card:hover .card {
+    transform: rotateY(180deg);
   }
 </style>
