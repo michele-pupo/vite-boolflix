@@ -79,6 +79,7 @@
 
   nav{
     background-color: #101010;
+    width: 100%;
     z-index: 10;
 
       #container-nav{
@@ -118,16 +119,17 @@
 
         #movie-serie{
           display: flex;
-          gap: 10px;
+          gap: 20px;
+          padding-right: 20px;
 
           #search-bar{
             form{
               display: flex;
               text-wrap: nowrap;
-              padding-right: 50px;
 
               #search{
                 padding: 0px 10px;
+                width: 150px;
                 border-color: transparent;
                 font-weight: bold;
               }
