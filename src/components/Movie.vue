@@ -55,7 +55,6 @@
         <div id="language">
           <img :src="languageFlagUrl" alt="Language Flag">
         </div>
-        <h4>{{ originalLanguage }}</h4>
         <div id="stars">
           <span v-for="star in myStars"><i class="fa-solid fa-star"></i></span>
           <span v-for="star in emptyStars"><i class="fa-regular fa-star"></i></span>
@@ -98,6 +97,10 @@
         img{
           width: 100%;
         }
+      }
+
+      #stars span i{
+        color: yellow;
       }
     }
   }

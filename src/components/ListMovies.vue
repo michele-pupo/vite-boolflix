@@ -24,7 +24,6 @@
         :originalLanguage="movie.original_language"
         :vote="Math.ceil(movie.vote_average)"
         :image="movie.poster_path">
-          
     </Movie>
   </ul>
 

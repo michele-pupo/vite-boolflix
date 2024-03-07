@@ -6,12 +6,14 @@
         data() {
           return {
             store,
+            maxStars: 5,
           };
         },
         props: {
           name: String,
           originalName: String,
           originalLanguage: String,
+          vote: Number,
           image: String,
         },
         computed: {
@@ -29,8 +31,14 @@
             };
             // se la lingua non è presente tra le bandierine, usiamo un'immagine predefinita
             return flagMapping[this.originalLanguage] || '../../public/img/logo_brand.jpg';
+          },
+          emptyStars() {
+              return this.maxStars - this.myStars;
+          },
+          myStars() {
+              return Math.ceil(this.vote / 2);
+          }
         }
-      }
     }
 </script>
 
@@ -46,6 +54,10 @@
         <h2>{{ originalName }}</h2>
         <div id="language">
           <img :src="languageFlagUrl" alt="Language Flag">
+        </div>
+        <div id="stars">
+          <span v-for="star in myStars"><i class="fa-solid fa-star"></i></span>
+          <span v-for="star in emptyStars"><i class="fa-regular fa-star"></i></span>
         </div>
     </div>
   </li>
@@ -85,6 +97,10 @@
                 img{
                     width: 100%;
                 }
+            }
+
+            #stars span i{
+              color: yellow;
             }
         }
     }
