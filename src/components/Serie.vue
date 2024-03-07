@@ -15,6 +15,7 @@
           originalLanguage: String,
           vote: Number,
           image: String,
+          overview: String
         },
         computed: {
           languageFlagUrl() {
@@ -52,8 +53,8 @@
       </div>
       <div id="serie-card-back">
         <div id="description-serie">
-            <h3>{{ name }}</h3>
-            <h2>{{ originalName }}</h2>
+            <h2>{{ name }}</h2>
+            <h3>{{ originalName }}</h3>
             <div id="language">
               <img :src="languageFlagUrl" alt="Language Flag">
             </div>
@@ -61,6 +62,7 @@
               <span v-for="star in myStars"><i class="fa-solid fa-star"></i></span>
               <span v-for="star in emptyStars"><i class="fa-regular fa-star"></i></span>
             </div>
+            <p id="text-serie">{{ overview }}</p>
         </div>
       </div>
     </div>
@@ -98,20 +100,23 @@
         background-color: black;
         color: white;
         transform: rotateY(180deg);
-        white-space: wrap;
-        overflow: hidden;
+        overflow: auto;
 
         #description-serie{
           display: flex;
           flex-flow: column;
           align-items: center;
-
-          h3{
-            font-size: 15px;
-          }
+          padding: 10px;
 
           h2{
+            font-size: 15px;
+            text-align: center;
+            padding-bottom: 10px;
+          }
+
+          h3{
             font-size: 10px;
+            padding-bottom: 10px;
           }
 
           #language{
@@ -119,11 +124,13 @@
 
             img{
               width: 100%;
+              padding-bottom: 10px;
             }
           }
 
           #stars span i{
             color: yellow;
+            padding-bottom: 10px;
           }
         }
       }  

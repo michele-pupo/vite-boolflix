@@ -23,7 +23,8 @@
         :originalName="serie.original_name"
         :originalLanguage="serie.original_language"
         :vote="Math.ceil(serie.vote_average)"
-        :image="serie.poster_path">  
+        :image="serie.poster_path"
+        :overview="serie.overview">  
   </Serie>
   </ul>
 
