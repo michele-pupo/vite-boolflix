@@ -6,6 +6,7 @@
         data() {
           return {
             store,
+            maxStars: 5,
           };
         },
         props: {
@@ -17,24 +18,27 @@
         },
         computed: {
           languageFlagUrl() {
-            // Mappa tra le stringhe restituite dall'API e i percorsi delle immagini delle bandiere
+            // inserire la bandiera corrispondente in base alla lingua
             const flagMapping = {
-              // Esempio di mappatura
-              'en': '../../public/img/en.jpg', // Percorso dell'immagine della bandiera inglese
+              'en': '../../public/img/en.jpg', 
               'fr': '../../public/img/fr.jpg',
               'de': '../../public/img/de.jpg',
               'es': '../../public/img/es.jpg',
               'it': '../../public/img/it.jpg',
               'ja': '../../public/img/ja.jpg',
               'ko': '../../public/img/ko.jpg',
-              'pl': '../../public/img/pl.jpg' // Percorso dell'immagine della bandiera francese
-              // Aggiungi altre corrispondenze necessarie
+              'pl': '../../public/img/pl.jpg' 
             };
-
-            // Ottieni il percorso dell'immagine della bandiera corrispondente alla lingua originale
-            return flagMapping[this.originalLanguage] || '../../public/img/logo_brand.jpg'; // Se la lingua non è mappata, usa una bandiera predefinita
+            // se la lingua non è presente tra le bandierine, usiamo un'immagine predefinita
+            return flagMapping[this.originalLanguage] || '../../public/img/logo_brand.jpg'; 
+          },
+          emptyStars() {
+              return this.maxStars - this.myStars;
+          },
+          myStars() {
+              return Math.ceil(this.vote / 2);
+          }
         }
-      }
     }
 </script>
 
@@ -52,7 +56,10 @@
           <img :src="languageFlagUrl" alt="Language Flag">
         </div>
         <h4>{{ originalLanguage }}</h4>
-        <h5>{{ vote }}</h5>
+        <div id="stars">
+          <span v-for="star in myStars"><i class="fa-solid fa-star"></i></span>
+          <span v-for="star in emptyStars"><i class="fa-regular fa-star"></i></span>
+        </div>
     </div>
   </li>
 
