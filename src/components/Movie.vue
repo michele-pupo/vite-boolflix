@@ -42,7 +42,7 @@
         myStars() {
           return Math.ceil(this.vote / 2);
         },
-        // Calcola il nome del genere corrispondente per ogni genre_id
+        // inserisce il nome del genere corrispondente per ogni genre_id
         genreNames() {
           if (Array.isArray(this.genre_ids) && this.genre_ids.length > 0) {
             return this.genre_ids.map(genreId => {
@@ -77,7 +77,7 @@
                 <span v-for="star in emptyStars"><i class="fa-regular fa-star"></i></span>
               </div>
               <p id="text-movie">{{ overview }}</p>
-              <span v-for="(genre, index) in genreNames" :key="index">{{ genre }}</span>
+              <span id="genre" v-for="(genre, index) in genreNames" :key="index">{{ genre }}</span>
             </div>
           </div>
         </div>
@@ -123,13 +123,13 @@
           padding: 10px;
 
           h2{
-            font-size: 15px;
+            font-size: 18px;
             text-align: center;
             padding-bottom: 10px;
           }
 
           h3{
-            font-size: 10px;
+            font-size: 12px;
             padding-bottom: 10px;
           }
 
@@ -145,6 +145,12 @@
           #stars span i{
             color: yellow;
             padding-bottom: 10px;
+          }
+
+          #genre{
+            color: $primary-color;
+            padding-top: 10px;
+            font-weight: bold;
           }
         }
       }  

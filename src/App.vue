@@ -62,4 +62,4 @@
 
 <style lang="scss">
   @use './styles/general.scss' as *;
-</style>./components/GenreSearch.vue
+</style>

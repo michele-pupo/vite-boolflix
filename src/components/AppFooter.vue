@@ -54,7 +54,7 @@
 @use '../styles/_variables' as *;
 
     #footer{
-        height: 200px;
+        height: 170px;
         width: 100%;
         background-color: $secondary-color;
         display: flex;
@@ -69,8 +69,8 @@
             flex-flow: column wrap;
             align-content: center;
             height: 100%;
-            row-gap: 15px;
-            column-gap: 100px;
+            row-gap: 10px;
+            column-gap: 50px;
 
             li{
                 text-decoration: underline;
@@ -85,12 +85,16 @@
         }
 
         #footer-language{
-            gap: 50px;
+            gap: 40px;
 
             .language-dropdown{
                 display: flex;
                 gap: 10px;
-                padding-bottom: 50px;
+                padding-bottom: 40px;
+
+                label{
+                    text-wrap: nowrap;
+                }
 
                 select{
                     cursor: pointer;
@@ -115,14 +119,14 @@
             align-items: center;
         }
 
-        a{
-            display: none;
-        }
-
         #footer-language{
             display: flex;
             font-size: 10px;
             align-items: flex-end;
+        }
+
+        a{
+            display: none;
         }
     }
 </style>

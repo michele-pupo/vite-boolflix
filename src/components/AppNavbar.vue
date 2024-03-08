@@ -46,7 +46,7 @@
                 name="searchSection"
                 placeholder="Inserisci titolo Film o serie TV..." />
             <button type="submit" name="searchSection">Cerca</button>
-            <button id="clear" type="button" @click="clearMovieSearch"><i class="fa-solid fa-x"></i></button>
+            <button id="clear" type="button" @click="clearMovieSearch"><i class="fa-solid fa-broom"></i></button>
           </form>
         </div>
       </div>
@@ -99,6 +99,8 @@
                 color: white;
                 &:hover{
                   color: $primary-color;
+                  border-bottom: 2px solid $primary-color;
+                  padding-bottom: 40px;
                 }
               }
             }
@@ -130,8 +132,9 @@
                 text-transform: uppercase;
                 font-weight: bold;
                 cursor: pointer;
+                margin-left: 5px;
                 &:hover{
-                  opacity: 0.8;
+                  opacity: 0.6;
                 }
               }
               
@@ -139,10 +142,15 @@
                 padding: 10px 20px;
                 background-color: black;
                 color: $primary-color;
-                border: transparent;
+                border:3px solid $primary-color;
                 text-transform: uppercase;
                 font-weight: bold;
                 cursor: pointer;
+                margin-left: 5px;
+
+                i{
+                  font-size: 25px;
+                }
               }
             }
           }
