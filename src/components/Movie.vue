@@ -1,73 +1,87 @@
 <script>
     import { store } from '../store';
-    export default{
-        name: 'Movie',
-      
-        data() {
-          return {
-              store,
-              maxStars: 5,
+
+    export default {
+      name: 'Movie',
+
+      props: {
+        title: String,
+        originalTitle: String,
+        originalLanguage: String,
+        vote: Number,
+        image: String,
+        overview: String,
+        genre_ids: Array,
+      },
+
+      data() {
+        return {
+          store,
+          maxStars: 5,
+          genres: [],
+        };
+      },
+
+      computed: {
+        languageFlagUrl() {
+          const flagMapping = {
+            'en': '../../public/img/en.jpg', 
+            'fr': '../../public/img/fr.jpg',
+            'de': '../../public/img/de.jpg',
+            'es': '../../public/img/es.jpg',
+            'it': '../../public/img/it.jpg',
+            'ja': '../../public/img/ja.jpg',
+            'ko': '../../public/img/ko.jpg',
+            'pl': '../../public/img/pl.jpg' 
           };
+          return flagMapping[this.originalLanguage] || '../../public/img/logo_brand.jpg'; 
         },
-        props: {
-          title: String,
-          originalTitle: String,
-          originalLanguage: String,
-          vote: Number,
-          image: String,
-          overview: String
+        emptyStars() {
+          return this.maxStars - this.myStars;
         },
-        computed: {
-          languageFlagUrl() {
-            // inserire la bandiera corrispondente in base alla lingua
-            const flagMapping = {
-              'en': '../../public/img/en.jpg', 
-              'fr': '../../public/img/fr.jpg',
-              'de': '../../public/img/de.jpg',
-              'es': '../../public/img/es.jpg',
-              'it': '../../public/img/it.jpg',
-              'ja': '../../public/img/ja.jpg',
-              'ko': '../../public/img/ko.jpg',
-              'pl': '../../public/img/pl.jpg' 
-            };
-            // se la lingua non è presente tra le bandierine, usiamo un'immagine predefinita
-            return flagMapping[this.originalLanguage] || '../../public/img/logo_brand.jpg'; 
-          },
-          emptyStars() {
-              return this.maxStars - this.myStars;
-          },
-          myStars() {
-              return Math.ceil(this.vote / 2);
+        myStars() {
+          return Math.ceil(this.vote / 2);
+        },
+        // Calcola il nome del genere corrispondente per ogni genre_id
+        genreNames() {
+          if (Array.isArray(this.genre_ids) && this.genre_ids.length > 0) {
+            return this.genre_ids.map(genreId => {
+              const foundGenre = this.store.genres.find(genre => genre.id === genreId);
+              return foundGenre ? foundGenre.name : '';
+            });
+          } else {
+            return [];
           }
-        }
-    }
+        },
+      },
+    };
 </script>
 
-<template>
- 
-  <li id="movie-card">
-    <div class="card">
-      <div id="movie-card-front">
-        <img class="image" v-if="image !== null" :src="`${this.store.apiPoster}${image}`" :alt="title">
-        <img class="image not-found" v-else src="../../public/img/Boolflix_Symbol.png">
-      </div>
-      <div id="movie-card-back">
-        <div id="description-movie">
-            <h2>{{ title }}</h2>
-            <h3>{{ originalTitle }}</h3>
-            <div id="language">
-              <img :src="languageFlagUrl" alt="Language Flag">
-            </div>
-            <div id="stars">
-              <span v-for="star in myStars"><i class="fa-solid fa-star"></i></span>
-              <span v-for="star in emptyStars"><i class="fa-regular fa-star"></i></span>
-            </div>
-            <p id="text-movie">{{ overview }}</p>
-        </div>
-      </div>
-    </div>
-  </li>
 
+<template>
+      <li id="movie-card">
+        <div class="card">
+          <div id="movie-card-front">
+            <img class="image" v-if="image !== null" :src="`${this.store.apiPoster}${image}`" :alt="title">
+            <img class="image not-found" v-else src="../../public/img/Boolflix_Symbol.png">
+          </div>
+          <div id="movie-card-back">
+            <div id="description-movie">
+              <h2>{{ title }}</h2>
+              <h3>{{ originalTitle }}</h3>
+              <div id="language">
+                <img :src="languageFlagUrl" alt="Language Flag">
+              </div>
+              <div id="stars">
+                <span v-for="star in myStars"><i class="fa-solid fa-star"></i></span>
+                <span v-for="star in emptyStars"><i class="fa-regular fa-star"></i></span>
+              </div>
+              <p id="text-movie">{{ overview }}</p>
+              <span v-for="(genre, index) in genreNames" :key="index">{{ genre }}</span>
+            </div>
+          </div>
+        </div>
+      </li>
 </template>
 
 <style lang="scss" scoped>

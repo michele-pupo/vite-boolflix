@@ -29,7 +29,8 @@
           :originalLanguage="movie.original_language"
           :vote="Math.ceil(movie.vote_average)"
           :image="movie.poster_path"
-          :overview="movie.overview">
+          :overview="movie.overview"
+          :genre_ids="movie.genre_ids">
       </Movie>
     </ul>
 

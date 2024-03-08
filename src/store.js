@@ -13,4 +13,8 @@ export const store = reactive ({
     series:[],
     //api locandine film e serie
     apiPoster:'https://image.tmdb.org/t/p/w1280/',
+
+    apiUrlGenre:'https://api.themoviedb.org/3/genre/movie/list?api_key=436e488d896be16eafbb27d2830c0175',
+
+    genres:[],
 });
