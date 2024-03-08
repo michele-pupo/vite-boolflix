@@ -44,7 +44,8 @@
           :originalLanguage="serie.original_language"
           :vote="Math.ceil(serie.vote_average)"
           :image="serie.poster_path"
-          :overview="serie.overview">  
+          :overview="serie.overview"
+          :genre_ids="serie.genre_ids">  
       </Movie>
     </ul>
   </div>

@@ -4,16 +4,13 @@
   import AppFooter from './components/AppFooter.vue';
   import { store } from './store';
   import axios from 'axios';
-  import GenreSearch from './components/GenreSearch.vue';
-
 
   export default{
 
     components: {
       AppNavbar,
       AppMain,
-      AppFooter,
-      GenreSearch
+      AppFooter
     },
     data() {
       return {
@@ -42,9 +39,12 @@
             console.log(res.data.genres);
             this.store.genres = res.data.genres;
           })
-          .catch((error) => {
-            console.error('Error fetching genres:', error);
-          });
+
+        axios.get(this.store.apiUrlGenreSerie)
+          .then((res) => {
+            console.log(res.data.genres);
+            this.store.genresSerie = res.data.genres;
+          })  
       }
     },
     created() {
@@ -56,7 +56,6 @@
 
 <template>
   <AppNavbar @searchMovie="callApiMovie"></AppNavbar>
-  <GenreSearch @search="searchMovie()"></GenreSearch>
   <AppMain></AppMain>
   <AppFooter></AppFooter>
 </template>

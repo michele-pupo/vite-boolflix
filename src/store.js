@@ -17,4 +17,8 @@ export const store = reactive ({
     apiUrlGenre:'https://api.themoviedb.org/3/genre/movie/list?api_key=436e488d896be16eafbb27d2830c0175',
 
     genres:[],
-});
+
+    apiUrlGenreSerie:'https://api.themoviedb.org/3/genre/tv/list?api_key=436e488d896be16eafbb27d2830c0175',
+
+    genresSerie:[],
+})
