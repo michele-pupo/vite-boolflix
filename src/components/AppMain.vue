@@ -19,7 +19,7 @@
 
 <style lang="scss">
     .bg{
-        height: calc(100vh - 270px);
+        height: calc(100vh - 320px);
         overflow: auto;
         .container{
             padding-bottom: 50px;

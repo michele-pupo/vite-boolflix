@@ -15,7 +15,7 @@
 </script>
 
 <template>
-  <div id="boolflix">
+  <div id="boolflix" v-if="store.movies.length === 0 && store.series.length === 0">
     <img src="../../public/img/boolflix.png" alt="">
   </div>
   <div>
@@ -38,8 +38,8 @@
       <Movie 
           v-for="serie in store.series"
           :key="serie.id"
-          :name="serie.name"
-          :originalName="serie.original_name"
+          :title="serie.name"
+          :originalTitle="serie.original_name"
           :originalLanguage="serie.original_language"
           :vote="Math.ceil(serie.vote_average)"
           :image="serie.poster_path"

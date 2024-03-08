@@ -1,20 +1,107 @@
 <script>
     export default{
         name: 'AppFooter',
+
+        data() {
+            return {
+                links: [
+                    'Domande frequenti',
+                    'Media Center',
+                    'Riscatta carta regalo',
+                    'Condizioni di utilizzo',
+                    "Informazioni sull'azienda",
+                    'Garanzia legale',
+                    'Preferenze per la pubblicità',
+                    'Centro assistenza',
+                    'Rapporti con gli investitori',
+                    'Acquista carte regalo',
+                    'Privacy',
+                    'Contattaci',
+                    'Note legali',
+                    'Account',
+                    'Opportunità di lavoro',
+                    'Come guardare Netflix',
+                    'Preferenze per i cookie',
+                    'Test di velocità',
+                    'Solo su Netflix'
+                ]
+            }
+        },
     };
 </script>
 
 <template>
     <div id="footer">
-
+        <div id="footer-language">
+            <div class="language-dropdown">
+                <label for="language-select">Sleziona Lingua:</label>
+                <select id="language-select">
+                    <option value="it">Italiano</option>
+                    <option value="en">English</option>
+                </select>
+            </div>
+            <h5>Boolflix Italia</h5>
+        </div>
+        <ul>
+            <li v-for="currentLink in links">
+                <a href="#">{{ currentLink }}</a>
+            </li>
+        </ul>
     </div>
 </template>
 
 <style lang="scss">
+@use '../styles/_variables' as *;
+
     #footer{
-        height: 150px;
+        height: 200px;
         width: 100%;
-        background-color: #101010;
+        background-color: $secondary-color;
         position: fixed;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 500px;
+        padding: 20px 100px;
+
+        ul{
+            list-style-type: none;
+            display: flex;
+            flex-flow: column wrap;
+            align-content: center;
+            height: 100%;
+            row-gap: 15px;
+            column-gap: 100px;
+
+            li{
+                text-decoration: underline;
+                
+                a{
+                    color: #959595;;
+                }
+            }
+        }
+
+        #footer-language{
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+
+            .language-dropdown{
+                display: flex;
+                gap: 10px;
+
+                select{
+                    cursor: pointer;
+                }
+            }
+        }
+
+        h5{
+            font-size: 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+
+        }
     }
 </style>

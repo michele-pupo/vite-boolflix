@@ -44,8 +44,8 @@
                 type="text" 
                 id="search" 
                 name="searchSection"
-                placeholder="Inserisci titolo..." />
-            <button type="submit" name="searchSection">Cerca Film</button>
+                placeholder="Inserisci titolo Film o serie TV..." />
+            <button type="submit" name="searchSection">Cerca</button>
             <button id="clear" type="button" @click="clearMovieSearch"><i class="fa-solid fa-x"></i></button>
           </form>
         </div>
@@ -63,7 +63,7 @@
 @use '../styles/_variables' as *;
 
   nav{
-    background-color: #101010;
+    background-color: $secondary-color;
     width: 100%;
     z-index: 10;
 
