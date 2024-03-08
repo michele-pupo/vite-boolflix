@@ -147,4 +147,13 @@
   #movie-card:hover .card {
     transform: rotateY(180deg);
   }
+
+  @media screen and (max-width: 576px){
+    #movie-card{
+        background-color: transparent;
+        width: 100%;
+        height: 700px;
+        padding: 0px 50px;
+      }
+    }
 </style>

@@ -20,10 +20,10 @@
                     'Note legali',
                     'Account',
                     'Opportunità di lavoro',
-                    'Come guardare Netflix',
+                    'Come guardare Boolflix',
                     'Preferenze per i cookie',
                     'Test di velocità',
-                    'Solo su Netflix'
+                    'Solo su Boolflix'
                 ]
             }
         },
@@ -34,7 +34,7 @@
     <div id="footer">
         <div id="footer-language">
             <div class="language-dropdown">
-                <label for="language-select">Sleziona Lingua:</label>
+                <label for="language-select">Seleziona Lingua:</label>
                 <select id="language-select">
                     <option value="it">Italiano</option>
                     <option value="en">English</option>
@@ -42,7 +42,7 @@
             </div>
             <h5>Boolflix Italia</h5>
         </div>
-        <ul>
+        <ul id="links">
             <li v-for="currentLink in links">
                 <a href="#">{{ currentLink }}</a>
             </li>
@@ -50,18 +50,17 @@
     </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @use '../styles/_variables' as *;
 
     #footer{
         height: 200px;
         width: 100%;
         background-color: $secondary-color;
-        position: fixed;
         display: flex;
         align-items: center;
         justify-content: flex-start;
-        gap: 500px;
+        gap: 400px;
         padding: 20px 100px;
 
         ul{
@@ -77,19 +76,21 @@
                 text-decoration: underline;
                 
                 a{
-                    color: #959595;;
+                    color: #959595;
+                    &:hover{
+                        color: white;
+                    }
                 }
             }
         }
 
         #footer-language{
-            display: flex;
-            flex-direction: column;
             gap: 50px;
 
             .language-dropdown{
                 display: flex;
                 gap: 10px;
+                padding-bottom: 50px;
 
                 select{
                     cursor: pointer;
@@ -102,6 +103,26 @@
             font-weight: bold;
             text-transform: uppercase;
 
+        }
+    }
+
+    /* versione mobile */
+    @media screen and (max-width: 576px){
+        #footer{
+            padding: 10px;
+            gap: 0px;
+            display: flex;
+            align-items: center;
+        }
+
+        a{
+            display: none;
+        }
+
+        #footer-language{
+            display: flex;
+            font-size: 10px;
+            align-items: flex-end;
         }
     }
 </style>

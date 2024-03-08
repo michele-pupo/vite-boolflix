@@ -55,8 +55,9 @@
   #boolflix{
     position: absolute;
     width: 900px;
-    top: 30%;
-    right: 30%;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
 
 
     img{
@@ -74,5 +75,11 @@
 
     img{
       padding: 50px 0px 10px 0px;
+    }
+
+    @media screen and (max-width: 576px){
+        #boolflix{
+            display: none;
+        }
     }
 </style>

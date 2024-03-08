@@ -97,6 +97,9 @@
               li a{
                 text-decoration: none;
                 color: white;
+                &:hover{
+                  color: $primary-color;
+                }
               }
             }
           }
@@ -122,11 +125,14 @@
               button{
                 padding: 5px 10px;
                 background-color: $primary-color;
-                color: black;
+                color: white;
                 border: transparent;
                 text-transform: uppercase;
                 font-weight: bold;
                 cursor: pointer;
+                &:hover{
+                  opacity: 0.8;
+                }
               }
               
               #clear{
@@ -155,5 +161,24 @@
         }
       }
   }
+
+  /* versione mobile */
+  @media screen and (max-width: 576px){
+        #links{
+            display: none;
+        }
+
+        #search{
+          padding: 0px 10px;
+        }
+
+        #user{
+          display: none;
+        }
+
+        #logo{
+          display: none;
+        }
+    }
 </style>
 
